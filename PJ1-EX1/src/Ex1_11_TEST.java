@@ -87,7 +87,5 @@ public class Ex1_11_TEST {
 			else {
 				return answerY;		
 			}
-
-
 	}
 }
