@@ -10,8 +10,8 @@ public class Ex1_11_TEST {
 		boolean checkAnswerOk = false;
 		Scanner sc = new Scanner(System.in);
 		//Instructions
-		checkUserInput  = getUser_IntInput ("N°1 Eau plate\nN°2 Coca Cola\nN°3 Bière pression\nN°4 Café long\n"
-											+ " Entrez le N° de consommation", MINVALUE, MAXVALUE );
+		checkUserInput  = getUser_IntInput ("N°1 Eau plate\nN°2 Coca Cola\nN°3 Bière pression\nN°4 Café long\n\n"
+											+ "Entrez le N° de consommation", MINVALUE, MAXVALUE );
 		if(checkUserInput == -1) {
 			System.out.println("N° non référencé");
 		}
@@ -55,7 +55,6 @@ public class Ex1_11_TEST {
 				}
 			}
 	}
-
 		public static int getUser_IntInput(String input, int minValue, int maxValue) {
 			//Variables locales
 			int intInput = 0;
