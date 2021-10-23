@@ -71,12 +71,6 @@ public class Ex1_11_TEST {
 				default : return -1;					
 			}
 	}
-
-
-
-
-
-
 		public static boolean checkAnswer(String answer, String response) {
 			//Variables locales
 			boolean answerY = false;
