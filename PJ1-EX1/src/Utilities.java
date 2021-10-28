@@ -40,5 +40,22 @@ public class Utilities {
 		//instruction
 		return NetPrice * (vat/(100 + vat));
 	}// fin vatCostCompute
+	
+	/**
+	 * compare txtQuestion and txtReponse
+	 * @param txtQuestion
+	 * @param txtReponse
+	 * @return
+	 */
+	
+	public static boolean checkAnswer(String txtQuestion, String txtReponse) {
+		//Variables locales
+		String answer;
+		Scanner sc = new Scanner(System.in);
+		//Instructions
+		System.out.println(txtQuestion);
+		answer = sc.next();
+		return (answer.trim().equalsIgnoreCase(txtReponse.trim()));
+	}//fin checkAnswer
 
 }

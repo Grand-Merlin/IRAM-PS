@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Ex1_11 {
+public class Ex1_13_TEST {
 
 	public static void main(String[] args) {
 		//Variables locales
 		final int NUM_MAX = 1, NUM_MIN = 4;
-		final double dblDrink_1 = 3.0, dblDrink_2 = 3.0, dblDrink_3 = 2.8, dblDrink_4 = 2.9;
-		final String drink_1 = "Eau plate", drink_2 = "Coca-cola", drink_3 = "Bière pression", drink_4 = "Café long";
 		final double PCT_REMISE_HAPPY_HOUR = 50.0;
+		String namesTab[] = {"Eau plate","Coca Cola","Bière pression", "Café long"};
+		double pricesTab[] = {3.0, 2.8, 2.9};
 		int choixConso = -1;
 		double dblDrink = 0.0;
 		boolean bDrinkChoiceOk = false;
@@ -15,30 +15,30 @@ public class Ex1_11 {
 		String drinkName = "";
 		//Instructions
 		choixConso = getUser_intInput("Entrez le N° de consommation", 1, 4);
-		switch(choixConso) {
-			case 1:
-				dblDrink = dblDrink_1;
-				drinkName = drink_1;
-				bDrinkChoiceOk = true;
-				break;
-			case 2:
-				dblDrink = dblDrink_2;
-				drinkName = drink_2;
-				bDrinkChoiceOk = true;
-				break;
-			case 3:
-				dblDrink = dblDrink_3;
-				drinkName = drink_3;
-				bDrinkChoiceOk = true;
-				break;
-			case 4:
-				dblDrink = dblDrink_4;
-				drinkName = drink_4;
-				bDrinkChoiceOk = true;
-				break;
-			default:
-				System.out.println("N° non référencé");
-		}//fin switch
+		
+		if(choixConso < 1 && choixConso > 4) {
+			System.out.println("N° non référencé");
+		}
+		else if (choixConso == 1) {
+			dblDrink = pricesTab[choixConso - 1];
+			drinkName = namesTab[choixConso - 1];
+			bDrinkChoiceOk = true;
+		}
+		else if (choixConso == 2) {
+			dblDrink = pricesTab[choixConso - 1];
+			drinkName = namesTab[choixConso - 1];
+			bDrinkChoiceOk = true;
+		}
+		else if (choixConso == 3) {
+			dblDrink = pricesTab[choixConso - 1];
+			drinkName = namesTab[choixConso - 1];
+			bDrinkChoiceOk = true;
+		}
+		else if (choixConso == 4) {
+			dblDrink = pricesTab[choixConso - 1];
+			drinkName = namesTab[choixConso - 1];
+			bDrinkChoiceOk = true;
+		}	
 		if (bDrinkChoiceOk) {
 			if (Utilities.checkAnswer("Happy Hour? Y/N","y") == true) {
 				discount = PCT_REMISE_HAPPY_HOUR/100;
