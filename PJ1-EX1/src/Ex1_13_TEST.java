@@ -7,7 +7,7 @@ public class Ex1_13_TEST {
 		final int NUM_MAX = 1, NUM_MIN = 4;
 		final double PCT_REMISE_HAPPY_HOUR = 50.0;
 		String namesTab[] = {"Eau plate","Coca Cola","Bière pression", "Café long"};
-		double pricesTab[] = {3.0, 2.8, 2.9};
+		double pricesTab[] = {3.0,3.0, 2.8, 2.9};
 		int choixConso = -1;
 		double dblDrink = 0.0;
 		boolean bDrinkChoiceOk = false;
