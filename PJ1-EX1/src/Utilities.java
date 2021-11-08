@@ -69,13 +69,30 @@ public class Utilities {
 		//Instructions
 		System.out.println(input);
 		saisie = sc.nextInt();
-		if (saisie < min || saisie > max) {
+		do {
+			System.out.println("Saisie incorrecte");
+			return -1;
+		}while (saisie < min || saisie > max);
+		
+		/*if (saisie < min || saisie > max) {
 			System.out.println("Saisie incorrecte");
 			return -1;
 		}
 		else {
 			return saisie;
-		}//fin if
+		}//fin if*/
+	}
+		//surcharge de méthode getUser_intInput cette fois sans valeur maximum comme 3ème paramètre
+		public static int getUser_intInput(String msg, int min) {
+		int intInput=0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println(msg);
+		intInput = sc.nextInt();
+		if (intInput >= min) {
+		return intInput;
+		}else {
+		return -1;
+		}
 	}//fin getUser_intInput
 }
 
