@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class Ex1_13_TEST {
 
@@ -16,28 +16,11 @@ public class Ex1_13_TEST {
 		//Instructions
 		choixConso = getUser_intInput("Entrez le N° de consommation", 1, 4);
 		
-		if(choixConso < 1 && choixConso > 4) {
+		if(choixConso !=1) {
+			dblDrink = pricesTab[choixConso - 1] * 
+		} else {
 			System.out.println("N° non référencé");
 		}
-		else if (choixConso == 1) {
-			dblDrink = pricesTab[choixConso - 1];
-			drinkName = namesTab[choixConso - 1];
-			bDrinkChoiceOk = true;
-		}
-		else if (choixConso == 2) {
-			dblDrink = pricesTab[choixConso - 1];
-			drinkName = namesTab[choixConso - 1];
-			bDrinkChoiceOk = true;
-		}
-		else if (choixConso == 3) {
-			dblDrink = pricesTab[choixConso - 1];
-			drinkName = namesTab[choixConso - 1];
-			bDrinkChoiceOk = true;
-		}
-		else if (choixConso == 4) {
-			dblDrink = pricesTab[choixConso - 1];
-			drinkName = namesTab[choixConso - 1];
-			bDrinkChoiceOk = true;
 		}	
 		if (bDrinkChoiceOk) {
 			if (Utilities.checkAnswer("Happy Hour? Y/N","y") == true) {
@@ -68,4 +51,4 @@ public class Ex1_13_TEST {
 		}//fin if
 	}//fin getUser_intInput
 
-}
+}*/

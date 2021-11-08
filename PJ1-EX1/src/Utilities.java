@@ -9,13 +9,14 @@ public class Utilities {
 	 */
 	public static double getUser_DoubleInput(String input) {
 		//Variable locales
-		double saisie = 0;
+		double saisie = 0.0;
 		Scanner sc = new Scanner(System.in);
 		//Instruction
 		System.out.println(input);
 		saisie = sc.nextDouble();
 		return saisie;
 	}//fin getUser_doubleInput
+	
 	
 	/**
 	 * Calcule le prix NET pour un prix BRUT et un taux de TVA donné
@@ -29,6 +30,7 @@ public class Utilities {
 		return grossPrice * (1 + (vat/100));
 	}//fin computeNetPrice
 	
+	
 	/**
 	 * Calcule le montant de TVA pour un prix NET et un taux de TVA donné
 	 * @param NetPrice
@@ -40,6 +42,7 @@ public class Utilities {
 		//instruction
 		return NetPrice * (vat/(100 + vat));
 	}// fin vatCostCompute
+	
 	
 	/**
 	 * compare txtQuestion and txtReponse
@@ -57,5 +60,37 @@ public class Utilities {
 		answer = sc.next();
 		return (answer.trim().equalsIgnoreCase(txtReponse.trim()));
 	}//fin checkAnswer
-
+	
+	
+	public static int getUser_intInput(String input, int min, int max) {
+		//Variables locales
+		int saisie = 0;
+		Scanner sc = new Scanner(System.in);
+		//Instructions
+		System.out.println(input);
+		saisie = sc.nextInt();
+		if (saisie < min || saisie > max) {
+			System.out.println("Saisie incorrecte");
+			return -1;
+		}
+		else {
+			return saisie;
+		}//fin if
+	}//fin getUser_intInput
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
