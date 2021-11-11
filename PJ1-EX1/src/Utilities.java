@@ -67,12 +67,14 @@ public class Utilities {
 		int saisie = 0;
 		Scanner sc = new Scanner(System.in);
 		//Instructions
-		System.out.println(input);
-		saisie = sc.nextInt();
 		do {
-			System.out.println("Saisie incorrecte");
-			return -1;
+			System.out.println(input);
+			saisie = sc.nextInt();
+			if(saisie < min || saisie > max) {
+				System.out.println("Saisie incorrecte");
+			}
 		}while (saisie < min || saisie > max);
+		return saisie;
 		
 		/*if (saisie < min || saisie > max) {
 			System.out.println("Saisie incorrecte");
