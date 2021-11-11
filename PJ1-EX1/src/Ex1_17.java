@@ -25,7 +25,7 @@ public class Ex1_17 {
 				return choice;
 			}//fin si
 
-		}while (choice.contains(expectedAnswers) == false);
+		}while (choice.contains(expectedAnswers) == false);//test push
 	}//fin getUserSpecificInput
 
 
