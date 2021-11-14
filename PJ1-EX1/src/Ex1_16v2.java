@@ -7,7 +7,7 @@ public class Ex1_16v2 {
 		int choiceNbr = 0;
 		//Instructions
 		do {
-			choiceNbr = Utilities.getUser_intInput("Entrez le nombre d’unités consommées",0 ,stock);
+			choiceNbr = Utilities.getUser_IntInput("Entrez le nombre d’unités consommées",0 ,stock);
 				//stock -= choiceNbr;
 				System.out.println("Nombre d’unités en stock " + stock);
 		}while(stock > 0);

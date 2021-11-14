@@ -9,7 +9,7 @@ public class Ex1_14 {
 		int userChoice=0, intQuantity=0;
 
 		showStock();
-		userChoice = Utilities.getUser_intInput("\nEntrez le N° de consommation", 1, Names.length);
+		userChoice = Utilities.getUser_IntInput("\nEntrez le N° de consommation", 1, Names.length);
 
 		if  (userChoice == -1) {
 			System.out.println("N° non référencé");
@@ -17,7 +17,7 @@ public class Ex1_14 {
 		else {
 			
 
-			intQuantity = Utilities.getUser_intInput("Entrez le nombre d'unités consommées pour " + Names[userChoice-1] + "\n"
+			intQuantity = Utilities.getUser_IntInput("Entrez le nombre d'unités consommées pour " + Names[userChoice-1] + "\n"
 				+ "Quantité actuellement en stock " + Stock[userChoice-1][1] + " - emplacement:" + Stock[userChoice-1][0] ,0);
 		     
 		    if (intQuantity > Stock[userChoice-1][1] ) { //si quantité de consommations supérieure au stock

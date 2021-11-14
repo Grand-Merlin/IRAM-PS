@@ -17,6 +17,21 @@ public class Utilities {
 		return saisie;
 	}//fin getUser_doubleInput
 	
+	/**
+	 * Retourne une saisie sur base d'une question passée en parametre
+	 * @param input une question
+	 * @return la saisie
+	 */
+	public static int getUser_IntInput(String input) {
+		//Variable locales
+		int saisie = 0;
+		Scanner sc = new Scanner(System.in);
+		//Instruction
+		System.out.println(input);
+		saisie = sc.nextInt();
+		return saisie;
+	}//fin getUser_IntInput
+	
 	
 	/**
 	 * Calcule le prix NET pour un prix BRUT et un taux de TVA donné
@@ -62,7 +77,7 @@ public class Utilities {
 	}//fin checkAnswer
 	
 	
-	public static int getUser_intInput(String input, int min, int max) {
+	public static int getUser_IntInput(String input, int min, int max) {
 		//Variables locales
 		int saisie = 0;
 		Scanner sc = new Scanner(System.in);
@@ -76,16 +91,9 @@ public class Utilities {
 		}while (saisie < min || saisie > max);
 		return saisie;
 		
-		/*if (saisie < min || saisie > max) {
-			System.out.println("Saisie incorrecte");
-			return -1;
-		}
-		else {
-			return saisie;
-		}//fin if*/
 	}
 		//surcharge de méthode getUser_intInput cette fois sans valeur maximum comme 3ème paramètre
-		public static int getUser_intInput(String msg, int min) {
+		public static int getUser_IntInput(String msg, int min) {
 		int intInput=0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println(msg);
