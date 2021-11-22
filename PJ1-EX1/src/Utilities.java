@@ -73,7 +73,7 @@ public class Utilities {
 		//Instructions
 		System.out.println(txtQuestion);
 		answer = sc.next();
-		return (answer.trim().equalsIgnoreCase(txtReponse.trim()));
+		return (answer.trim().equalsIgnoreCase(txtReponse.trim().toUpperCase()));
 	}//fin checkAnswer
 	
 	
@@ -92,6 +92,23 @@ public class Utilities {
 		return saisie;
 		
 	}
+	public static double getUser_DoubleInput(String input, int min, int max) {
+		//Variables locales
+		double saisie = 0;
+		Scanner sc = new Scanner(System.in);
+		//Instructions
+		do {
+			System.out.println(input);
+			saisie = sc.nextInt();
+			if(saisie < min || saisie > max) {
+				System.out.println("Saisie incorrecte");
+			}
+		}while (saisie < min || saisie > max);
+		return saisie;
+		
+	}
+	
+	
 		//surcharge de méthode getUser_intInput cette fois sans valeur maximum comme 3ème paramètre
 		public static int getUser_IntInput(String msg, int min) {
 		int intInput=0;
@@ -104,6 +121,18 @@ public class Utilities {
 		return -1;
 		}
 	}//fin getUser_intInput
+		/**
+		 * Retourne une chaine de caractere sur base d'une question posée en parametre
+		 * @param msg
+		 * @return
+		 */
+		public static String getUser_StringInput(String msg) {
+			String stringInput = "";
+			Scanner sc = new Scanner(System.in);
+			System.out.println(msg);
+			stringInput = sc.next();
+			return stringInput;
+		}//fin getUser_StringInput
 }
 
 
