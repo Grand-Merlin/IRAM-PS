@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utilities {
@@ -77,6 +78,8 @@ public class Utilities {
 	}//fin checkAnswer
 	
 	
+	
+	
 	public static int getUser_IntInput(String input, int min, int max) {
 		//Variables locales
 		int saisie = 0;
@@ -133,6 +136,40 @@ public class Utilities {
 			stringInput = sc.next();
 			return stringInput;
 		}//fin getUser_StringInput
+		
+		
+		public static String getUserSpecificInput(String msg, String expectedAnswers ) {
+			
+			String strAnswer;
+			Scanner sc= new Scanner(System.in);
+				
+			do {
+					
+				System.out.println(msg);
+				strAnswer= sc.next().trim().toUpperCase();
+					//if only one char and if this char is in the expected answer string
+				if (strAnswer.length()==1 && expectedAnswers.toUpperCase().indexOf(strAnswer)>=0 ) {
+				    	return strAnswer;
+				    	
+				}else{
+				    	System.out.println("Erreur de saisie, votre choix doit être parmi " + expectedAnswers  + " une lettre seulement");
+				    }
+				
+			}while (true);//end do while
+		}
+		
+		/**
+		* renvoie un nombre aléatoire entre un min et un max donné
+		*/
+		public static int randInt(int min, int max) {
+
+		Random rand = new Random();
+		// nextInt is normally exclusive of the top value,
+		// so add 1 to make it inclusive
+		int randomNum = rand.nextInt((max - min)+1) + min;
+		return randomNum;
+		}//en randInt
+
 }
 
 
