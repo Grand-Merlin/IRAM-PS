@@ -14,7 +14,15 @@ public class Ex1_13 {
 		//Instructions
 		choixConso = Utilities.getUser_IntInput("Entrez le N° de consommation", NUM_MIN, NUM_MAX);
 		if (choixConso != -1) {
-			dbDrink = PRICES[choixConso - 1] * (Utilities.checkAnswer("Happy hour ? Y/N", "Y")? PCT_REMISE_HAPPY_HOUR/100 : 1.0);
+			/*if(Utilities.checkAnswer("Happy hour ? Y/N", "Y")){
+				dbDrink = PRICES[choixConso - 1] * PCT_REMISE_HAPPY_HOUR/100;
+			}
+			else {
+				dbDrink = PRICES[choixConso - 1] * 1.0;
+			}*/
+			
+			dbDrink = PRICES[choixConso - 1] * (Utilities.checkAnswer("Happy hour ? Y/N", "Y")?PCT_REMISE_HAPPY_HOUR/100:1.0);
+			//dbDrink = PRICES[choixConso - 1] * (Utilities.checkAnswer("Happy hour ? Y/N", "Y")? PCT_REMISE_HAPPY_HOUR/100 : 1.0);
 			System.out.println("Prix de la consommation " + NAMES[choixConso - 1] + " : " + dbDrink + " €");
 		}
 

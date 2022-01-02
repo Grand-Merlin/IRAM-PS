@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Ex1_20 {
 	
@@ -15,19 +16,15 @@ public class Ex1_20 {
 	                                    2.9,5.5,2.7,5.1,3.1,5.8,2.6,4.9,2.6,4.9,10.8,11.2,12.2,14.5,16.9};
 
 	public static void main(String[] args) {
-		
-		/*for(int i=0;i < NetPrices.length; i=i+1) {
-			System.out.println(Names[i] + " " + NetPrices[i]+"€");
-			}//fin for*/
-		
-		int i = 0;
-		while(i < NetPrices.length) {
-			System.out.println(Names[i] + " " + NetPrices[i]+"€");
-			i++;
+		showMenu();
 		}
-		
-		
-
-	}
+	public static void showMenu() {
+		//Variables locales
+		DecimalFormat df = new DecimalFormat("0.00");
+		//Instructions
+	for(int i = 0; i < Names.length; i++) {
+		System.out.println(Names[i] + " " + df.format(NetPrices[i]) + " €");
+		}//fin pour
+	}//FIN showMenu
 
 }
