@@ -49,7 +49,6 @@ public class pendu {
 		showGallows();
 		System.out.println(word);
 		System.out.println("Vous avez "+ (computeIfWin(word, countOfLetterFind)? "gagné":"perdu"));
-
 	}//FIN main
 
 
