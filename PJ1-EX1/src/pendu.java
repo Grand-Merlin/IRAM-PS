@@ -50,8 +50,6 @@ public class pendu {
 		System.out.println(word);
 		System.out.println("Vous avez "+ (computeIfWin(word, countOfLetterFind)? "gagné":"perdu"));
 	}//FIN main
-
-
 	public static String chooseWordInDico() {
 		//Variables locales
 		int random = 0;
