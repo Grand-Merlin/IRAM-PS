@@ -133,12 +133,12 @@ public class Utilities {
 		String stringInput = "";
 		Scanner sc = new Scanner(System.in);
 		System.out.println(msg);
-		stringInput = sc.next();
+		stringInput = sc.next().toUpperCase();
 		return stringInput;
 	}//fin getUser_StringInput
 
 
-	public static String getUserSpecificInput(String msg, String expectedAnswers ) {
+	public static String getUserSpecificInput(String msg, String expectedAnswers) {
 
 		String strAnswer;
 		Scanner sc= new Scanner(System.in);
@@ -148,7 +148,7 @@ public class Utilities {
 			System.out.println(msg);
 			strAnswer= sc.next().trim().toUpperCase();
 			//if only one char and if this char is in the expected answer string
-			if (strAnswer.length()==1 && expectedAnswers.toUpperCase().indexOf(strAnswer)>= 0 ) {
+			if (strAnswer.length()== 1 && expectedAnswers.toUpperCase().indexOf(strAnswer)>= 0 ) {
 				return strAnswer;
 
 			}else{
@@ -197,7 +197,7 @@ public class Utilities {
 		}while (true);
 	}
 
-
+	
 	public static String getUserIntorSpecificInput(String msg ,String expectedAnswers,int min ) {
 		int input = 0;
 		String answer = "";
@@ -286,7 +286,7 @@ public class Utilities {
 		//Variables locales
 		//Instructions
 		for(int i = 0; i < tab.length; i++) {
-			if(tab[i].contains(num)) {
+			if(tab[i].equals(num)) {
 				return true;
 			}//FIN SI
 		}//FIN POUR

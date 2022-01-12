@@ -1,6 +1,6 @@
 
 public class Assert {
-	
+
 	public static void isTrue(String testName, int expected, int result) {
 		System.out.println(testName + " " + (expected == result? "OK":"FAILED"));
 	}//FIN isTrue	
@@ -16,5 +16,11 @@ public class Assert {
 	public static void isTrue(String testName, int[][] expected, int[][] result) {
 		System.out.println(testName + " " + (expected == result? "OK":"FAILED"));
 	}//FIN isTrue
+	public static void isTrue(String testName, int[] expected, int[] result) {
+		System.out.println(testName + " " + (expected == result? "OK":"FAILED"));
+	}//FIN isTrue
+	public static void isTrue(String testName, double expected, double result, double precision) {
+		System.out.println(testName + " " + (Math.abs(expected-result) <= precision? "OK":"FAILED"));
+	}
 
 }

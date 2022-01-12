@@ -1,4 +1,3 @@
-
 public class InterCarrefour {
 
 	//Constantes globales
@@ -6,8 +5,8 @@ public class InterCarrefour {
 	public static int FIRST_WIN = 5;
 	public static int SECOND_WIN = 2;
 	public static int LENGTH_OF_TICKET = 8;
-	public static int PROBABILITY_FIRST_WIN = 10;
-	public static int PROBABILITY_SECOND_WIN = 4;
+	public static int PROBABILITY_FIRST_WIN = 1;
+	public static int PROBABILITY_SECOND_WIN = 1;
 	public static int TICKET_NO_PLAY = -1;
 	public static String MESS_AWAITING = "Numéro validé, attention tirage au sort en cours...";
 	public static String MESS_LOSE = "Pas de chance, vous n'avez pas gagné ! Revenez nous voir pour tenter votre chance";
@@ -27,7 +26,9 @@ public class InterCarrefour {
 		String numTicket = "";
 		int gain = 0;
 		//Instructions
-		numbersToPlay = generateNumbersToPlay();
+		numbersToPlay = new String[NBR_OF_WINNER];
+		numbersToPlay = initialNumbersToPlay(numbersToPlay);
+		numbersToPlay = generateNumbersToPlay(numbersToPlay);
 		activityNumbers = new int [NBR_OF_WINNER];
 		activityNumbers = initialActivityNumbers(activityNumbers);
 		do {
@@ -38,32 +39,31 @@ public class InterCarrefour {
 				}//FIN SI
 			}while(numTicket.length() < LENGTH_OF_TICKET || numTicket.length() > LENGTH_OF_TICKET);
 			if(!Utilities.isInTabString(numbersToPlay, numTicket)) {
-				System.out.println(MESS_LOSE);
-				System.out.println(END_MESS);
+				System.out.println(MESS_LOSE + "\n\n" + END_MESS);
 			}else {
 				if(!alreadyUseTicket(activityNumbers, numbersToPlay, numTicket)) {
 					gain  = computeGain();
 				}else {
-					System.out.println(ALREADY_USE_MESS);
-					System.out.println(END_MESS);
+					System.out.println(ALREADY_USE_MESS + "\n\n" + END_MESS);
 				}//FIN SI
 				activityNumbers = majActivityNumbers(numTicket, gain,activityNumbers, numbersToPlay);
 			}//FIN SI 
 		}while(!ckeckAllTicketPlay(activityNumbers));
-
-
-
 	}//FIN main
 
 
 
-	public static String[] generateNumbersToPlay() {
+	public static String[] generateNumbersToPlay(String[] numbersToPlay) {
 		//Variables locales
-		String[] numbersToPlay;
+		String random = "";
 		//Instructions
-		numbersToPlay = new String[NBR_OF_WINNER];
 		for(int i = 0; i < numbersToPlay.length; i++) {
-			numbersToPlay[i] = generateRandomStringOfNumber();
+			random = generateRandomStringOfNumber(numbersToPlay);
+			if(!Utilities.isInTabString(numbersToPlay, random)) {
+					numbersToPlay[i] = random;
+				}else {
+					i--;
+			}//FIN SI
 		}//FIN POUR
 		return numbersToPlay;
 
@@ -75,7 +75,7 @@ public class InterCarrefour {
 		//Variables locales
 		//Instructions
 		for(int i = 0; i < numbersToPlay.length; i++) {
-			if(numTicket.contains(numbersToPlay[i]) ) {
+			if(numTicket.equals(numbersToPlay[i]) ) {
 				activityNumbers [i] = gain;
 			}//FIN SI
 		}//FIN POUR
@@ -84,6 +84,16 @@ public class InterCarrefour {
 
 
 
+	public static String[] initialNumbersToPlay(String[]numbersToPlay) {
+		//Variables locales
+		//Instructions
+		for(int i = 0; i < numbersToPlay.length; i++) {
+			numbersToPlay[i] = "-1";
+		}//FIN POUR
+		return numbersToPlay;
+	}//FIN initialActivityNumbers
+	
+	
 	public static int[] initialActivityNumbers(int[]activityNumbers) {
 		//Variables locales
 		//Instructions
@@ -98,14 +108,14 @@ public class InterCarrefour {
 		//Variables locales
 		//Instructions
 		if(Utilities.randInt(1, PROBABILITY_FIRST_WIN) == Utilities.randInt(1, PROBABILITY_FIRST_WIN)) {
-			System.out.println(MESS_AWAITING + "\n" + WIN_MESS_FIRST + "\n" + END_MESS);
+			System.out.println(MESS_AWAITING + "\n" + WIN_MESS_FIRST + "\n\n" + END_MESS);
 			return FIRST_WIN;
 		}//FIN SI
 		if(Utilities.randInt(1, PROBABILITY_SECOND_WIN) == Utilities.randInt(1, PROBABILITY_SECOND_WIN)) {
-			System.out.println(MESS_AWAITING + "\n" + WIN_MESS_SECOND + "\n" + END_MESS);
+			System.out.println(MESS_AWAITING + "\n" + WIN_MESS_SECOND + "\n\n" + END_MESS);
 			return SECOND_WIN;
 		}else{
-			System.out.println(MESS_AWAITING + "\n" + MESS_LOSE + "\n" + END_MESS);
+			System.out.println(MESS_AWAITING + "\n" + MESS_LOSE + "\n\n" + END_MESS);
 			return 0;
 		}//FIN SI
 	}//FIN computeGain
@@ -125,14 +135,12 @@ public class InterCarrefour {
 
 
 
-	public static String generateRandomStringOfNumber() {
+	public static String generateRandomStringOfNumber(String[] numbersToPlay) {
 		//Variables locales
 		String finalString = "";
-		int randomNbr = 0;
 		//Instructions
 		do {
-			randomNbr = Utilities.randInt(0, 9);
-			finalString += Integer.toString(randomNbr);
+			finalString += Integer.toString(Utilities.randInt(0, 9));
 		}while(finalString.length() < LENGTH_OF_TICKET );
 		return finalString;
 	}//FIN generateRandomStringOfNumber
